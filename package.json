@@ -1,0 +1,24 @@
+{
+  "name": "web-scraper",
+  "version": "1.0.0",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "node scraper"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/brendantherrien/project-6.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/brendantherrien/project-6/issues"
+  },
+  "homepage": "https://github.com/brendantherrien/project-6#readme",
+  "dependencies": {
+    "crawler": "^1.1.2",
+    "csv-file-creator": "^1.0.8"
+  },
+  "devDependencies": {},
+  "description": ""
+}
