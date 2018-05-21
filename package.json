@@ -17,7 +17,7 @@
   "homepage": "https://github.com/brendantherrien/project-6#readme",
   "dependencies": {
     "crawler": "^1.1.2",
-    "csv-file-creator": "^1.0.8"
+    "csv-write-stream": "^2.0.0"
   },
   "devDependencies": {},
   "description": ""

@@ -1,13 +1,14 @@
 // Load modules
 const fs = require("fs");
 const Crawler = require("crawler");
-const csv = require("csv-file-creator");
+const csv = require("csv-write-stream");
 
 const baseURL = "http://shirts4mike.com/";
 // Initialize array of links
 let links = [];
-// Initialize array to hold shirt data (price, title, etc.) with first row as column headers
-let shirts = [["Title", "Price", "ImageURL", "URL", "Time"]];
+// Initialize array to hold shirt data (price, title, etc.) and headers
+let headers = ["Title", "Price", "ImageURL", "URL", "Time"];
+let shirts = [];
 
 
 /**
@@ -52,7 +53,12 @@ const scrape = () => {
                     let date = new Date();
                     let name = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate() + ".csv";
                     // Create file
-                    csv("./data/" + name, shirts);
+                    var writer = csv({ headers: headers });
+                    writer.pipe(fs.createWriteStream("data/" + name));
+                    shirts.forEach(shirt => {
+                        writer.write(shirt);
+                    });
+                    writer.end();
                 }
             }
         }
